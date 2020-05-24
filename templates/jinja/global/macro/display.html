@@ -229,9 +229,9 @@
     {% for L in Obj.get_active_links() %}
         <a href="{{ L.get_link() }}" target="_blank">
             {%- if L.link.icon -%}
-                <img class="song-resource" alt="Icon" src="{{ L.link.icon.url }}" title="[{{ L.link.name }}]{% if L.comment %} - {{ L.comment }}{% endif %}" />
+                <img class="song-resource" alt="Icon" src="{{ L.link.icon.url }}" title="[{{ L.link.name }}]{% if L.comment %} - {{ L.comment|e }}{% endif %}" />
             {%- else -%}
-                <span title="{% if L.comment %}{{ L.comment }}{% endif %}">[{{ L.link.name }}]</span>
+                <span title="{% if L.comment %}{{ L.comment|e }}{% endif %}">[{{ L.link.name }}]</span>
             {%- endif -%}
         </a>
     {% endfor %}
